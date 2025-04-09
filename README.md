@@ -73,14 +73,14 @@ Este projeto realiza o **mapeamento de cobertura vegetal, solo exposto e infesta
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repo.git
-cd nome-do-repo
+git clone https://github.com/phaa/weed-drone-detector.git
+cd weed-drone-detector
 ```
 
 ### 2. Inicie seu ambiente
 
 ```bash
-conda activate env
+conda activate seu-env
 ```
 
 ### 3. Abra o Jupyter lab
