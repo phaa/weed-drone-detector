@@ -1,46 +1,65 @@
-# Mapeamento de ervas daninhas em imagens de satélite
+# Weed Mapping in Satellite Images
 
-Este projeto realiza o **mapeamento de cobertura vegetal, solo exposto e infestação por plantas daninhas** em lavouras agrícolas, utilizando **redes neurais supervisionadas** e imagens multiespectrais com 4 bandas (RGB + Alpha). O objetivo é oferecer uma análise visual e estatística para apoio em **tomada de decisão agronômica**, como aplicação de defensivos agrícolas e acompanhamento da lavouras em todos os estágios do ciclo.
-
----
-
-## Etapas do Processo
-
-1. **Leitura da imagem multiespectral (.tif)**
-2. **Coleta de amostras** via polígonos shapefile (.shp) de:
-   - Solo exposto
-   - Vegetação saudável
-   - Daninhas
-3. **Treinamento de uma rede neural MLP (Keras)** para classificar pixels pela cor
-4. **Predição da imagem inteira** com base no modelo treinado
-5. **Visualização da imagem classificada e segmentada**
-6. **Geração de estatísticas**:
-   - Proporção por classe
-   - Área total em hectares por classe
-   - Índice de infestação
-   - Consumo estimado de glifosato, água e diesel
-7. **Exportação de relatórios gráficos e imagens**
+This project performs **vegetation cover, exposed soil, and weed infestation mapping** in agricultural crops, using **supervised neural networks** and multispectral images with 4 bands (RGB + Alpha). The objective is to provide visual and statistical analysis to support **agronomic decision-making**, such as agricultural pesticide application and crop monitoring throughout all stages of the cycle.
 
 ---
 
-## Insights gerados 📊
+# Using Georeferenced Imagery in Agriculture
 
-- Imagem original e imagem predita
+Segmented and georeferenced imagery plays a crucial role in modern precision agriculture. By mapping field boundaries and detecting weed-infested areas at the pixel level, farmers can plan highly targeted interventions — especially when leveraging cutting-edge technologies such as agricultural drones.
+
+<p align="center">
+ <img src="https://i.ytimg.com/vi/P2YPG8PO9JU/maxresdefault.jpg" title="Spraying with drones" width="800" />
+</p>
+
+When combined with drone technology, georeferenced data enables:
+
+- **Targeted spraying**, significantly reducing herbicide waste  
+- **Optimized route planning**, saving time and fuel  
+- **Access to difficult terrain**, where tractors can't operate  
+- **Soil preservation**, as drones avoid compaction entirely  
+- **Lower operational costs**, requiring less labor and fewer inputs  
+
+This approach turns conventional spraying into precise, site-specific treatment, reducing costs, environmental impact, and damage to soil structure.
+
+Based on this scenario, we will now estimate the total cost required to treat all weed-affected areas identified in the classified image.
+
+---
+
+## Process Steps
+
+1. **Reading the multispectral image (.tif)**
+2. **Sample collection** via shapefile polygons (.shp) of:
+   - Exposed soil
+   - Healthy vegetation
+   - Weeds
+3. **Training an MLP neural network (Keras)** to classify pixels by color
+4. **Predicting the entire image** based on the trained model
+5. **Visualization of the classified and segmented image**
+6. **Generation of statistics**:
+   - Proportion by class
+   - Total area in hectares by class
+   - Infestation index
+   - Estimated consumption of herbicide, water, and energy
+7. **Export of graphical reports and images**
+
+---
+
+## Generated Insights 📊
+
+- Original image and predicted image
 <p align="center">
  <img src="https://github.com/phaa/weed-drone-detector/blob/main/outputs/comparsion.png" title="book" width="800" />
 </p>
 
-- Gráficos de distribuição de áreas
+- Area distribution charts
 <p align="center">
  <img src="https://github.com/phaa/weed-drone-detector/blob/main/outputs/charts.png" title="book" width="800" />
 </p>
 
-- Relatório de insumos:
-
-
 ---
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - Python 3.x
 - NumPy, Pandas
@@ -51,49 +70,49 @@ Este projeto realiza o **mapeamento de cobertura vegetal, solo exposto e infesta
 
 ---
 
-## Aplicações ✅
+## Applications ✅
 
-- Agricultura de Precisão
-- Prescrição de defensivos agrícolas
-- Geração de mapas segmentados
-- Monitoramento de infestação e cobertura vegetal
-
----
-
-## 📌 Observações
-
-- A imagem deve conter canal alpha para separar pixels válidos (valor 255).
-- As amostras são fundamentais para treinar um modelo eficiente. Use shapefiles com polígonos bem definidos.
-- A área total é convertida de pixels para hectares com base na resolução da imagem (resolução espacial).
+- Precision Agriculture
+- Agricultural pesticide prescription
+- Generation of segmented maps
+- Monitoring of infestation and vegetation cover
 
 ---
 
-## Como executar
+## 📌 Observations
 
-### 1. Clone o repositório
+- The image must contain an alpha channel to separate valid pixels (value 255).
+- Samples are fundamental to train an efficient model. Use shapefiles with well-defined polygons.
+- The total area is converted from pixels to hectares based on the image resolution (spatial resolution).
+
+---
+
+## How to run
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/phaa/weed-drone-detector.git
 cd weed-drone-detector
 ```
 
-### 2. Inicie seu ambiente
+### 2. Start your environment
 
 ```bash
 conda activate seu-env
 ```
 
-### 3. Abra o Jupyter lab
+### 3. Open Jupyter lab
 
 ```bash
 jupyter lab
 ```
 
-### 4. Execute o notebook
-Todas as dependencias são instaladas diretamente pelo notebook
+### 4. Run the notebook
+NOTE: All dependencies are installed directly through the notebook
 
-## 📚 Créditos
+## 📚 Credits
 
-Desenvolvido com ❤️ por <a href='https://www.linkedin.com/in/pedro-henrique-amorim-de-azevedo/' target='_blank'>Pedro Henrique Amorim de Azevedo</a>
+Developed with ❤️ by <a href='https://www.linkedin.com/in/pedro-henrique-amorim-de-azevedo/' target='_blank'>Pedro Henrique Amorim de Azevedo</a>
 
 ---
